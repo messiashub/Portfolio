@@ -1,9 +1,19 @@
+/*IMPORTANDO FONTES*/
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600&family=Josefin+Slab:wght@400;700&family=Mulish:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
 }
+:root{/*criando variáveis para as fontes*/
+    --font-primary:"Baloo Da 2",serif;
+    --font-secundary:"Josefin Slab",serif;
+    --font-action:"Roboto";}
+
+
 /*FORMATANDO O HEADER*/
 header{
     width: 100%;
@@ -13,6 +23,7 @@ header{
 .img-wrapper{
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background: rgba(0,0,0, 0.8);
 }
 .img-wrapper img{
@@ -20,6 +31,15 @@ header{
     height: 100%;
     object-fit: cover;
     opacity: 0.7;
+    animation: zoom 15s; /*Chamando a animação*/
+}
+@keyframes zoom{  /*animação*/
+    0%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 .menu{
     width: 100%;
@@ -39,12 +59,20 @@ header{
 }
 .menu ul li a{
     color: #fff;
+    font-family: var(--font-action);
     font-size: 1.5rem;
+    font-weight: 300;
+    /*text-shadow: 1px 1px 5px #000;*/
     text-transform: uppercase;
     margin: 2rem;
+    transition: 1s;     
 }
 .menu ul li:last-child{
     margin-right: 4rem;
+}
+.menu ul li a:hover{
+    color: #df2b25;
+       
 }
 .banner{
     position: absolute;
@@ -53,22 +81,47 @@ header{
 }
 .banner h1{
     color: #fff;
-    font-size: 2.9rem;
-    line-height: 3.5rem;
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    font-weight: 200;
+    text-shadow: 1px 1px 5px #000;
+    line-height: 3.8rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    animation: movebanner 1.5s 0.6s forwards;
 }
+
 .banner p{
     color: #fff;
+    font-family: var(--font-secundary);
     font-size: 2rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    animation: movebanner 1.5s 0.8s forwards; /*Chamando a animação*/
 }
 .banner button{
     color: #fff;
+    font-family: var(--font-action);
     text-transform: uppercase;
     background: #7f00ff;
     border: none;
     padding: 1rem 3rem;
     border-radius: 5px;
+    letter-spacing: .1rem;
+    border: none;
     cursor: pointer;
-    
+    outline: none;
+    opacity: 0;
+    animation: movebanner 1.5s 0.9s forwards;    /*Chamando a animação*/
+}
+.banner button:hover{
+    background: #7535b4 ;
+}
+@keyframes movebanner{
+    0% {transform: translateY(10rem) rotateY(-30deg);
+    }
+    100%{
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
 }
