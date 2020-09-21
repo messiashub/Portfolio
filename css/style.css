@@ -125,3 +125,10 @@ header{
         opacity: 1;
     }
 }
+
+.conhecimentos{
+    display: grid;
+    grid-template-columns: 1fr repeat(16);
+    grid-template-rows: repeat(6,6rem);
+
+}
